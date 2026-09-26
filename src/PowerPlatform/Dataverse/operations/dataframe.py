@@ -48,7 +48,9 @@ class DataFrameOperations:
 
     def __init__(self, client: DataverseClient) -> None:
         try:
-            import pandas as pd  # noqa: F401
+            import importlib
+
+            importlib.import_module("pandas")
         except ImportError as exc:
             raise ImportError(
                 "pandas is required to use DataFrame features. "
